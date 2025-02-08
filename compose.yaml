@@ -1,0 +1,11 @@
+services:
+
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: .docker/api/Dockerfile
+    environment:
+      PORT: "8383"
+    ports:
+      - '8383:8383'
