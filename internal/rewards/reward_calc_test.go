@@ -76,3 +76,49 @@ func TestCalculateRewardsExample2(t *testing.T) {
 		t.Errorf("Expected %d, got %d", expected, actual)
 	}
 }
+
+func TestCalculateRewardsExample3(t *testing.T) {
+	reciept := model.Reciept{
+		Retailer:     "Walgreens",
+		PurchaseTime: time.Date(2022, 01, 02, 8, 13, 0, 0, time.UTC),
+		Items: []model.Item{
+			{
+				ShortDescription: "Pepsi - 12-oz",
+				Price:            1.25,
+			},
+			{
+				ShortDescription: "Dasani",
+				Price:            1.40,
+			},
+		},
+		Total: 2.65,
+	}
+
+	expected := 15
+	actual := CalculateRewards(&reciept)
+
+	if actual != expected {
+		t.Errorf("Expected %d, got %d", expected, actual)
+	}
+}
+
+func TestCalculateRewardsExample4(t *testing.T) {
+	reciept := model.Reciept{
+		Retailer:     "Target",
+		PurchaseTime: time.Date(2022, 01, 02, 13, 13, 0, 0, time.UTC),
+		Items: []model.Item{
+			{
+				ShortDescription: "Pepsi - 12-oz",
+				Price:            1.25,
+			},
+		},
+		Total: 1.25,
+	}
+
+	expected := 31
+	actual := CalculateRewards(&reciept)
+
+	if actual != expected {
+		t.Errorf("Expected %d, got %d", expected, actual)
+	}
+}
