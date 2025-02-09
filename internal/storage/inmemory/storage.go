@@ -12,6 +12,7 @@ var (
 )
 
 type DB struct {
+	//TODO: add RWLock for concurrent access
 	reciepts map[string]*model.Reciept
 }
 
