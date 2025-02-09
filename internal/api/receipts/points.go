@@ -33,7 +33,7 @@ func (a *App) HandleRecieptsPoints(w http.ResponseWriter, r *http.Request) {
 	reciept, err := a.db.GetById(id)
 	if err != nil {
 		if errors.Is(err, inmemory.ErrRecieptNotFound) {
-			utils.JSONError(w, "Reciept not found", http.StatusNotFound)
+			utils.JSONError(w, "No receipt found for that ID.", http.StatusNotFound)
 			return
 		}
 		log.Printf("getting reciept by id failed: %v\n", err)

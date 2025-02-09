@@ -4,7 +4,6 @@
 1. Replace standard `log` package with [better logging library](https://github.com/sirupsen/logrus).
 1. Cover API functions with unit. I covered only most important part.
 1. Add API documentation (Swagger UI, etc).
-1. Add validation. I added validation only for prices and date\time fields.
 1. It's a good practice to use .env and ENV together. We could use https://github.com/joho/godotenv to achieve this.
 
 
